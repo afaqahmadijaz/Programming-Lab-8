@@ -14,12 +14,13 @@
 //
 //  Chapter:       Chapters 1 - 8 Objects, Classes, and Methods
 //
-//  Description:  <An explanation of what the program is designed to do>
+//  Description:  Demonstrates the SavingsAccount class by creating two accounts,
+//                applying monthly interest for 12 months at 4%, performing deposit and withdrawal operations,
+//                then recalculating the next month at 5% interest.
 //
 //********************************************************************
 
-public class Program8
-{
+public class Program8 {
     //***************************************************************
     //
     //  Method:       main
@@ -31,10 +32,9 @@ public class Program8
     //  Returns:      N/A
     //
     //**************************************************************
-    public static void main(String[] args)
-    {
-        Program8 obj = new Program8();
+    public static void main(String[] args) {
 
+        Program8 obj = new Program8();
         developerInfo();
         obj.runProgram();
 
@@ -74,37 +74,31 @@ public class Program8
 
         // Change interest rate to 5% and calculate next month
         changeRateAndCalculate(saver1, saver2);
-
     }
 
     public void displayTwelveMonths(SavingsAccount saver1, SavingsAccount saver2) {
-        String[] months = {"January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"};
+        String[] months = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
         System.out.println("Monthly balances at 4% annual interest rate:");
         System.out.println();
         printTableHeader();
 
-        for (int i = 0; i < 12; i++)
-        {
+        for (int i = 0; i < 12; i++) {
             saver1.calculateMonthlyInterest();
             saver2.calculateMonthlyInterest();
             printMonthlyBalance(months[i], saver1, saver2);
         }
 
         System.out.println();
-
     }
 
     public void printTableHeader() {
-        System.out.printf("%-12s %15s %15s%n", "Month", "Saver1", "Saver2");
-        System.out.println("---------------------------------------------------");
-
+        System.out.printf("%-12s %20s %20s%n", "Month", "Saver1 Balance", "Saver2 Balance");
+        System.out.println("-------------------------------------------------------");
     }
 
     public void printMonthlyBalance(String month, SavingsAccount saver1, SavingsAccount saver2) {
         System.out.printf("%-12s $%14s $%14s%n", month, saver1.toString(), saver2.toString());
-
     }
 
     public void performTransactions(SavingsAccount saver1, SavingsAccount saver2) {
@@ -116,7 +110,6 @@ public class Program8
 
         System.out.println("Withdrew $550.00 from Saver2's account");
         System.out.println();
-
     }
 
     public void changeRateAndCalculate(SavingsAccount saver1, SavingsAccount saver2) {
@@ -130,7 +123,6 @@ public class Program8
 
         System.out.printf("Saver1: $%s%n", saver1.toString());
         System.out.printf("Saver2: $%s%n", saver2.toString());
-
     }
 
 }
